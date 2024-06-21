@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    
+    .menu {
+      width: 20%;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    
+    .menu img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #000000; 
+}
+    .menu .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .menu p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    
+    .menu li {
+      margin-bottom: 5px;
+    }
+    
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+    
+    .tasks {
+      width: 75%;
+    }
+    
+    .tasks h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .tasks .tables {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .tasks table {
+      width: 45%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    
+    .tasks table th,
+    .tasks table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    .tasks table th {
+      background-color: #f2f2f2;
+    }
+    
+    .tasks table td {
+      background-color: #fff;
+    }
+    
+    .tasks input[type="text"] {
+      width: calc(100% - 28px);
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    
+    .tasks button {
+      padding: 8px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .tasks button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Lista de Tarefas</div>
+    <div class="content">
+      <div class="menu">
+        <img src="icon.png" alt="Ícone">  
+        <div class="name">Maria Jose</div>
+        <p>Lorem ipsum dolor sit amet. 33 maiores consequatur aut adipisci quis sit ducimus accusamus aut fuga officia hic adipisci quas. 
+          Et eaque vitae ut quibusdam delectus qui dolores nihil vel accusantium nostrum. 
+          Qui perspiciatis autem quo nisi assumenda et animi enim. Id numquam nisi est soluta ducimus aut molestias officia et laborum adipisci sed blanditiis voluptate.</p>
+        <ul>
+          <li><a href="#">Link1</a></li>
+          <li><a href="#">Link2</a></li>
+          <li><a href="#">Link3</a></li>
+          <li><a href="#">Link4</a></li>
+        </ul>
+      </div>
+      <div class="tasks">
+        <h2>Tarefas</h2>
+        <div class="tables">
+          <table id="dia">
+            <caption>Dia</caption>
+            <thead>
+              <tr>
+                <th>Tarefa</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1. Levantar-se</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>2. Tomar Banho</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>3. Comer</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>4. Escovar Dentes</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>5. Ir para o trabalho</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+            </tbody>
+          </table>
+          <table id="noite">
+            <caption>Noite</caption>
+            <thead>
+              <tr>
+                <th>Tarefa</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1. Tomar Banho</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>2. Comer</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>3. Escovar Dentes</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>4. Ler um Livro</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+              <tr><td>5. Deitar</td><td><button onclick="removerTarefa(this)">Remover</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <input type="text" id="novaTarefa" placeholder="Digite uma nova tarefa">
+        <button onclick="adicionarTarefa('dia')">Adicionar no Dia</button>
+        <button onclick="adicionarTarefa('noite')">Adicionar na Noite</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function adicionarTarefa(tipo) {
+      var novaTarefa = document.getElementById('novaTarefa').value;
+      if (novaTarefa.trim() === '') {
+        alert('Por favor, insira uma tarefa válida.');
+        return;
+      }
+      
+      var tabela;
+      if (tipo === 'dia') {
+        tabela = document.getElementById('dia').getElementsByTagName('tbody')[0];
+      } else if (tipo === 'noite') {
+        tabela = document.getElementById('noite').getElementsByTagName('tbody')[0];
+      } else {
+        return;
+      }
+      
+      var newRow = tabela.insertRow();
+      var cell1 = newRow.insertCell(0);
+      var cell2 = newRow.insertCell(1);
+      cell1.textContent = novaTarefa;
+      cell2.innerHTML = '<button onclick="removerTarefa(this)">Remover</button>';
+      
+      document.getElementById('novaTarefa').value = '';
+    }
+
+    function removerTarefa(button) {
+      var row = button.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+    }
+  </script>
+</body>
+</html>
